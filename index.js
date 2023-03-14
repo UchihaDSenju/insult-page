@@ -7,6 +7,7 @@ var userName = document.querySelector('.nameInput');
 const insultBtn = document.querySelector('.insultBtn');
 const buttons = document.querySelector('.buttons');
 var users = localStorage.getItem('users').split(",");
+let flag = 0;
 console.log(users);
 
 
@@ -44,7 +45,6 @@ var author = [
     'mohamed tariq',
     'mohamed'
   ]
-let flag = 0;
 
 var urlExtra = 'https://api.dicebear.com/5.x/adventurer/svg?size=200&scale=90&radius=50';
 var seed = '';
@@ -55,7 +55,6 @@ var url = "https://api.dicebear.com/5.x/adventurer/svg?size=200&scale=90&radius=
 
 const earring = parseInt(Math.random() * 6);
 // url += "&earrings=variant0" + earring + "&earringsProbability=100"; // To add earrings to the avatar
-console.log(url);
 
 
 // Adding event listener to the userNameInputTag that we ahve created
@@ -86,7 +85,6 @@ userName.addEventListener('keyup', () => {
         }
         // console.log(foundGender + gender);
     })
-    console.log(url);
 })
 
 // Change the avatar
@@ -103,7 +101,6 @@ const changeAvatar = function(){
         hair = '&hair=long' + ("0" + num).slice(-2);
     }
     urlExtra = `${url}${seed}${hair}`
-    console.log(urlExtra);
     avatarImg.innerHTML = `
     <img class = 'avatarImg'
         src=${urlExtra}
@@ -116,21 +113,17 @@ const changeAvatar = function(){
 const downloadBtn = document.querySelector('.downloadBtn');
 downloadBtn.addEventListener('click', () => {
     console.log('clicked');
-    const screenshotTarget = document.querySelector('.container');
-    const avatarImg = document.querySelector('.avatarImg')
+    const screenshotTarget = document.querySelector('.appContainer');
     buttons.style.display = 'none';
     htmlToImage.toPng(screenshotTarget)
     .then(function (dataUrl) {
         const link = document.createElement('a');
-        console.log(dataUrl);
         link.href=dataUrl;
         link.download = "insult-avatar.png";
         link.click();
         link.remove();
 
     });
-    toastr["success"]("This is the message", "Hello")
-    console.log('returned')
     buttons.style.display = 'flex';
 })
 
@@ -157,7 +150,7 @@ function insult(){
     const heading = document.querySelector('.heading h1');
     var insult = document.querySelector('.insult');
     var insultainer = document.querySelector('.insultainer')
-    buttons.style.display = 'flex';
+    buttons.style.display = flag ? 'none' : 'flex' ;
     heading.innerHTML = userName.value;
     insultainer.style.display = 'block';
     userName.style.display = 'none';
@@ -171,9 +164,6 @@ function insult(){
         users.push(userName.value.toLowerCase());
         localStorage.setItem('users', users);
     }
-    console.log(users);
-    console.log(insult)
-    console.log(num);
 }
 
 let insults = [
