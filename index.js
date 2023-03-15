@@ -6,7 +6,10 @@ const avatarImg = document.querySelector('.avatar');
 var userName = document.querySelector('.nameInput');
 const insultBtn = document.querySelector('.insultBtn');
 const buttons = document.querySelector('.buttons');
-var users = localStorage.getItem('users').split(",");
+var users = [];
+if(localStorage.getItem('users')){
+    users = localStorage.getItem('users').split(",");
+}
 let flag = 0;
 console.log(users);
 

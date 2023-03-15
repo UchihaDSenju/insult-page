@@ -12695,7 +12695,10 @@ var avatarImg = document.querySelector('.avatar');
 var userName = document.querySelector('.nameInput');
 var insultBtn = document.querySelector('.insultBtn');
 var buttons = document.querySelector('.buttons');
-var users = localStorage.getItem('users').split(",");
+var users = [];
+if (localStorage.getItem('users')) {
+  users = localStorage.getItem('users').split(",");
+}
 var flag = 0;
 console.log(users);
 if (localStorage.getItem("date") != new Date().getDate()) {
@@ -12860,7 +12863,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62910" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57246" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
