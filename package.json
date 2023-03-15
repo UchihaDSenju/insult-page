@@ -4,8 +4,9 @@
   "description": "insult your friends when you type their name",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "author": {
     "name": "Tariq",
@@ -14,8 +15,8 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "^1.12.5",
-    "sass": "^1.59.2"
+    "sass": "^1.59.2",
+    "vite": "^4.1.4"
   },
   "dependencies": {
     "@dicebear/collection": "^5.3.4",

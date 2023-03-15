@@ -34,6 +34,8 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    background-color: #064663;
+    border-radius: 10px;
 }
 .nameInput{
     width: 80%;

@@ -1,5 +1,4 @@
 import * as htmlToImage from 'html-to-image';
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import toastr from 'toastr';
 
 const avatarImg = document.querySelector('.avatar');
